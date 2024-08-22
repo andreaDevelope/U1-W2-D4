@@ -72,12 +72,48 @@ const shoppingCartTotal = () => {
 };
 
 console.log(shoppingCartTotal());
+
 /* EXTRA 3
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const rifornimentoNegozio = [
+  {
+    price: 100,
+    name: "penna",
+    id: 1,
+    quantity: 505,
+  },
+  {
+    price: 1000,
+    name: "mouse",
+    id: 2,
+    quantity: 40,
+  },
+  {
+    price: 10000,
+    name: "gioco bellissimo",
+    id: 3,
+    quantity: 10,
+  },
+];
+
+const addToShoppingCart = (param = rifornimentoNegozio) => {
+  for (i = 0; i < shoppingCart.length; i++) {
+    for (j = 0; j < param.length; j++) {
+      if (shoppingCart[i].name === param[j].name) {
+        shoppingCart[i].quantity += param[j].quantity;
+      }
+    }
+  }
+  return shoppingCart;
+};
+
+const negozioRifornito = addToShoppingCart();
+
+console.log(negozioRifornito);
 
 /* EXTRA 4
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -85,6 +121,19 @@ console.log(shoppingCartTotal());
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+let articoloPiùCostoso = "";
+const maxShoppingCart = () => {
+  for (let i = 0; i < shoppingCart.length; i++) {
+    for (let j = 0; j < shoppingCart.length; j++) {
+      if (shoppingCart[i].price > shoppingCart[j].price) {
+        articoloPiùCostoso = shoppingCart[i].name;
+      }
+    }
+  }
+  return articoloPiùCostoso;
+};
+
+console.log("questo è l'articolo più costoso =>", maxShoppingCart());
 
 /* EXTRA 5
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -93,12 +142,41 @@ console.log(shoppingCartTotal());
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const latestShoppingCart = () => {
+  return shoppingCart[shoppingCart.length - 1];
+};
+
+const ultimoProd = latestShoppingCart();
+console.log(ultimoProd);
+
 /* EXTRA 6
  Crea una funzione chiamata "loopUntil" che riceve un numero intero come parametro con valore tra 0 e 9.
  La funzione è composta da un ciclo che stampa un numero casuale tra 0 e 9 finchè il numero casuale non è maggiore di x per tre volte di fila.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+//
+let strikecount = 0;
+let x = 5;
+let loopCount = 0;
+
+const loopUntil = (param = x) => {
+  while (strikecount < 3) {
+    const numRndEs6 = Math.floor(Math.random() * 10);
+    console.log(numRndEs6);
+
+    if (numRndEs6 > param) {
+      strikecount++;
+    } else {
+      strikecount = 0;
+    }
+
+    loopCount++;
+  }
+  console.log("Ottimo lavoro, 3 strike di fila in sole", loopCount, "iterazioni");
+};
+
+loopUntil();
 
 /* EXTRA 7
 Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.
