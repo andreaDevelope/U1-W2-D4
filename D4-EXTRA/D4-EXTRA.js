@@ -11,7 +11,7 @@ const length = Math.floor(Math.random() * 101);
 
 const giveMeRandom = (param = length) => {
   const newRandomArr = [];
-  for (i = 0; i < param; i++) {
+  for (let i = 0; i < param; i++) {
     const newRndValue = Math.floor(Math.random() * 11);
     newRandomArr.push(newRndValue);
   }
@@ -24,7 +24,7 @@ const checkArray = () => {
   const newRandomArr = giveMeRandom();
   console.log(newRandomArr, newRandomArr.length);
 
-  for (i = 0; i < newRandomArr.length; i++) {
+  for (let i = 0; i < newRandomArr.length; i++) {
     if (newRandomArr[i] > 5) {
       console.log(newRandomArr[i] + " è maggiore di 5");
     } else {
@@ -64,7 +64,7 @@ let shoppingCart = [
 
 const shoppingCartTotal = () => {
   let priceTot = 0;
-  for (i = 0; i < shoppingCart.length; i++) {
+  for (let i = 0; i < shoppingCart.length; i++) {
     priceTot += shoppingCart[i].price * shoppingCart[i].quantity;
   }
   const prezzoInEuro = priceTot / 100;
@@ -101,7 +101,7 @@ const rifornimentoNegozio = [
 ];
 
 const addToShoppingCart = (param = rifornimentoNegozio) => {
-  for (i = 0; i < shoppingCart.length; i++) {
+  for (let i = 0; i < shoppingCart.length; i++) {
     for (j = 0; j < param.length; j++) {
       if (shoppingCart[i].name === param[j].name) {
         shoppingCart[i].quantity += param[j].quantity;
@@ -161,7 +161,7 @@ let x = 5;
 let loopCount = 0;
 
 const loopUntil = (param = x) => {
-  while (strikecount < 3) {
+  while (strikecount < 4) {
     const numRndEs6 = Math.floor(Math.random() * 10);
     console.log(numRndEs6);
 
@@ -182,6 +182,19 @@ loopUntil();
 Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.
 */
 
+const arrEs7 = [10, "non lo so", 20, "boh", 30, 100];
+let media = 0;
+const average = (param = arrEs7) => {
+  for (let i = 0; i < param.length; i++) {
+    if (typeof (param[i] === "number")) {
+      media += param[i];
+    }
+  }
+  return (media = media / param.length);
+};
+
+media = average();
+console.log(media);
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* EXTRA 8

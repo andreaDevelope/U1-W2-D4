@@ -19,7 +19,7 @@ console.log(areaRett);
 /* SCRIVI QUI LA TUA RISPOSTA */
 let crazySum = [];
 
-for (i = 0; i < 2; i++) {
+for (let i = 0; i < 2; i++) {
   crazySum.push(Math.floor(Math.random() * 101));
 }
 
@@ -171,7 +171,7 @@ const length = Math.floor(Math.random() * 101);
 
 const giveMeRandom = (param = length) => {
   const newRandomArr = [];
-  for (i = 0; i < param; i++) {
+  for (let i = 0; i < param; i++) {
     const newRndValue = Math.floor(Math.random() * 11);
     newRandomArr.push(newRndValue);
   }
