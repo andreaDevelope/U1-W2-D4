@@ -35,14 +35,43 @@ const checkArray = () => {
 
 console.log(checkArray());
 
-// console.log(abc);
 /* EXTRA 2
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "shoppingCartTotal" che calcola il totale dovuto al negozio (tenendo conto delle quantità di ogni oggetto).
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+let shoppingCart = [
+  {
+    price: 100,
+    name: "penna",
+    id: 1,
+    quantity: 105,
+  },
+  {
+    price: 1000,
+    name: "mouse",
+    id: 2,
+    quantity: 30,
+  },
+  {
+    price: 10000,
+    name: "gioco bellissimo",
+    id: 3,
+    quantity: 5,
+  },
+];
 
+const shoppingCartTotal = () => {
+  let priceTot = 0;
+  for (i = 0; i < shoppingCart.length; i++) {
+    priceTot += shoppingCart[i].price * shoppingCart[i].quantity;
+  }
+  const prezzoInEuro = priceTot / 100;
+  console.log(prezzoInEuro);
+};
+
+console.log(shoppingCartTotal());
 /* EXTRA 3
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
  Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
